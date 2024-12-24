@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url(yazyki-programirovaniya.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #bbb;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #aaa;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    transition: transform 0.2s ease, background-color 0.3s;
+    border-radius: 8px;
+}
+
+.card img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    opacity: 0; /* Начальное состояние: изображение невидимо */
+    transform: scale(0.8); /* Уменьшенное начальное состояние */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Плавное появление изображения с увеличением */
+    display: block;
+    border-radius: 5px;
+}
+
+.card.flipped img {
+    opacity: 1; /* Когда карточка перевернута, изображение становится видимым */
+    transform: scale(1); /* Изображение возвращается к нормальному размеру */
+}
+
+.card.flipped {
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 2rem; /* Большой шрифт */
+    font-weight: bold; /* Жирный текст */
+    color: #ffffff; /* Цвет текста */
+    margin-right: auto; /* Прижать таймер к левому краю */
+}
+
+#clicks {
+    font-size: 1.5rem; /* Умеренно большой шрифт */
+    margin-left: 20px; /* Отступ между таймером и кликами */
+}
+
+#reset {
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: repeat(5, 80px);
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
